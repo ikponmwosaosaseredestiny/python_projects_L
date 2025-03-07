@@ -1,6 +1,7 @@
 # compound interest calculator
 # formula used A = p(1 + r/n)^nt
 # where A = total amount that accumulates. P = original principal; that's the money we start with. The r = interest rate. and t = time (in years).
+#  --------- IODCONSTRUCT (2025) ----------
 
 import math
 
@@ -32,10 +33,10 @@ def solve_A():
         print('Please select from A-E:\n\n')
         solve_A()
 
-    r = round(int(r)/100, 5)
+    r = round(float(r)/100, 5)
     r_n = r/n_value
-    n_t = n_value * int(t)
-    A = int(p) * ((1 + r_n) ** n_t)
+    n_t = n_value * float(t)
+    A = float(p) * ((1 + r_n) ** n_t)
     print(f'your total amount that accumulates (A) is {round(A, 3)}')
 
 
@@ -62,10 +63,10 @@ def solve_B():
         print('Please select from A-E:\n\n')
         solve_B()
 
-    r = round(int(r)/100, 5)
+    r = round(float(r)/100, 5)
     r_n = r/n_value
-    n_t = n_value * int(t)
-    p = int(a) / ((1 + r_n) ** n_t)
+    n_t = n_value * float(t)
+    p = float(a) / ((1 + r_n) ** n_t)
     print(f'your original principal is {round(p, 3)}')
 
 
@@ -93,7 +94,7 @@ def solve_C():
         solve_C()
 
     n_t = n_value * int(t)
-    a_p = (int(a)/int(p)) ** (1/n_t)
+    a_p = ((float(a)/float(p)) ** (1/n_t)) - 1
     r = n_value * a_p
     print(f'your interest rate is {round(r, 2)}%')
 
@@ -121,15 +122,12 @@ def solve_D():
         print('Please select from A-E:\n\n')
         solve_D()
 
-    a_p = (int(a)/int(p))
-    r_n = 1 + (int(r)/int(n_value))
+    a_p = (float(a)/float(p))
+    r_n = 1 + (float(r)/int(n_value))
     log_a_p = math.log10(a_p)
     log_r_n = math.log10(r_n)
     t = log_a_p / (n_value * log_r_n)
-
-    print(f' {log_r_n}')
-
-    print(f'your time (in years) is {round(t, 2)} years')
+    print(f'Your time (in years) is {round(t, 2)} years')
 
 
 def start():
